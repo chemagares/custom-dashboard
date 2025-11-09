@@ -20,6 +20,7 @@
   background-color: rgb(41, 41, 41);
   height: 100%;
   position: relative;
+  overflow-y: auto;
 }
 
 .section-gap {
@@ -33,6 +34,11 @@
   display: flex;
   align-items: center;
   min-height: fit-content;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
 }
 
 .dashboard-section__header {
@@ -40,8 +46,10 @@
 }
 .dashboard-section__content {
   padding-bottom: var(--section-padding-v);
-  padding-left: var(--section-padding-h);
-  padding-right: var(--section-padding-h);
+  /* padding-left: var(--section-padding-h);
+  padding-right: var(--section-padding-h); */
+  height: 100%;
+  position: relative;
 }
 
 .dashboard-section__delete-handler {
@@ -68,7 +76,7 @@
 }
 
 .dashboard-section__delete:active {
-  opacity: 0.5;
+  opacity: 1;
 }
 
 .dashboard-section__edit-line.--horizontal {

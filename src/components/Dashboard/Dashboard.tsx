@@ -6,13 +6,15 @@ import * as EXAMPLE_1 from "./examples/1.json";
 // import * as EXAMPLE_2 from "./examples/2.json";
 // import * as EXAMPLE_3 from "./examples/3.json";
 import * as EXAMPLE_4 from "./examples/4.json";
+import * as EXAMPLE_5 from "./examples/5.json";
 import { DashboardScreen } from "../DashboardScreen/DashboardScreen";
 import { Tabs } from "../Tabs/Tabs";
 import { Switch } from "../Switch/Switch";
+import { ComponentItem } from "../Section/Section";
 
 export interface SectionType {
   display: "COLUMN" | "ROW";
-  size: number | null;
+  component?: ComponentItem;
 }
 
 export const Dashboard = () => {
@@ -23,6 +25,11 @@ export const Dashboard = () => {
       tree: TreeNode<SectionType>;
     }>
   >([
+    {
+      id: "Example 5",
+      title: "Example 5",
+      tree: createTree(EXAMPLE_5) as TreeNode<SectionType>,
+    },
     {
       id: "Example I",
       title: "Example I",

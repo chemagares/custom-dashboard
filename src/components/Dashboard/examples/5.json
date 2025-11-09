@@ -1,0 +1,21 @@
+{
+  "id": "root",
+  "value": { "display": "ROW" },
+  "children": [
+    {
+      "id": "352c4cc2748",
+      "value": { "display": "COLUMN" },
+      "children": [
+        {
+          "id": "7a60dc1a4a",
+          "value": {
+            "display": "COLUMN",
+            "component": {
+              "id": "widget1"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

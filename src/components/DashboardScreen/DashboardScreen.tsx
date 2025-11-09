@@ -2,16 +2,12 @@ import { Section } from "../Section/Section";
 import { createTree, TreeNode, type RawTreeNode } from "tr33";
 import React from "react";
 import { SectionEditHandler } from "../Section/SectionEditHandler";
+import { SectionType } from "../Dashboard/Dashboard";
 
 // Random integer: min and max included
 // function randomIntFromInterval(min: number, max: number) {
 //   return Math.floor(Math.random() * (max - min + 1) + min);
 // }
-
-export interface SectionType {
-  display: "COLUMN" | "ROW";
-  size: number | null;
-}
 
 export const DashboardScreen = ({
   dashboard,
@@ -37,13 +33,11 @@ export const DashboardScreen = ({
         ? {
             value: {
               display: "COLUMN",
-              size: null,
             },
             children: [
               {
                 value: {
                   display: "COLUMN",
-                  size: null,
                 },
               },
             ],
@@ -51,7 +45,6 @@ export const DashboardScreen = ({
         : {
             value: {
               display: "COLUMN",
-              size: null,
             },
           }
     ) as RawTreeNode<SectionType>;
@@ -92,6 +85,12 @@ export const DashboardScreen = ({
     setDashboard(createTree(dashboard?.value()) as TreeNode<SectionType>);
   };
 
+  const updateValue = (id: string, value: SectionType) => {
+    const [node] = dashboard.find(id);
+    node?.update(value);
+    setDashboard(createTree(dashboard?.value()) as TreeNode<SectionType>);
+  };
+
   //console.log(JSON.stringify(dashboard?.value()));
 
   return (
@@ -125,6 +124,7 @@ export const DashboardScreen = ({
               removePanel={(id: string) => {
                 removePanel(id);
               }}
+              updateValue={updateValue}
             />
             {edit && (
               <SectionEditHandler

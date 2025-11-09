@@ -1,39 +1,39 @@
 {
   "id": "root",
-  "value": { "display": "ROW", "size": null },
+  "value": { "display": "ROW" },
   "children": [
     {
       "id": "26c91c31b28",
-      "value": { "display": "COLUMN", "size": null },
+      "value": { "display": "COLUMN" },
       "children": [
-        { "id": "1329239b334", "value": { "display": "COLUMN", "size": null } },
-        { "id": "35d4793c010", "value": { "display": "COLUMN", "size": null } },
-        { "id": "536a3d11437", "value": { "display": "COLUMN", "size": null } }
+        { "id": "1329239b334", "value": { "display": "COLUMN" } },
+        { "id": "35d4793c010", "value": { "display": "COLUMN" } },
+        { "id": "536a3d11437", "value": { "display": "COLUMN" } }
       ]
     },
     {
       "id": "42a9b9a53a6",
-      "value": { "display": "COLUMN", "size": null },
+      "value": { "display": "COLUMN" },
       "children": [
-        { "id": "21560dd7c31", "value": { "display": "COLUMN", "size": null } },
-        { "id": "32bac7d1c24", "value": { "display": "COLUMN", "size": null } }
+        { "id": "21560dd7c31", "value": { "display": "COLUMN" } },
+        { "id": "32bac7d1c24", "value": { "display": "COLUMN" } }
       ]
     },
     {
       "id": "1506a64b94b",
-      "value": { "display": "COLUMN", "size": null },
+      "value": { "display": "COLUMN" },
       "children": [
-        { "id": "1d82458a3bb", "value": { "display": "COLUMN", "size": null } },
-        { "id": "3020a72d15a", "value": { "display": "COLUMN", "size": null } },
-        { "id": "100b0470792", "value": { "display": "COLUMN", "size": null } }
+        { "id": "1d82458a3bb", "value": { "display": "COLUMN" } },
+        { "id": "3020a72d15a", "value": { "display": "COLUMN" } },
+        { "id": "100b0470792", "value": { "display": "COLUMN" } }
       ]
     },
     {
       "id": "4b20a6c3c2c",
-      "value": { "display": "COLUMN", "size": null },
+      "value": { "display": "COLUMN" },
       "children": [
-        { "id": "47231710532", "value": { "display": "COLUMN", "size": null } },
-        { "id": "13144c52d3a", "value": { "display": "COLUMN", "size": null } }
+        { "id": "47231710532", "value": { "display": "COLUMN" } },
+        { "id": "13144c52d3a", "value": { "display": "COLUMN" } }
       ]
     }
   ]

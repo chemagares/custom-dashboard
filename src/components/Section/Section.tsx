@@ -3,6 +3,16 @@ import type { SectionType } from "../Dashboard/Dashboard";
 import "./Section.styles.css";
 import type { TreeNode } from "tr33";
 import { SectionEditHandler } from "./SectionEditHandler";
+import {
+  ExampleWidget1,
+  ExampleWidget1Props,
+  ExampleWidget2,
+  ExampleWidget2Props,
+  ExampleWidget3,
+  ExampleWidget3Props,
+  SelectWidget,
+} from "../Widgets/ExampleWidgets";
+import { Dropdown } from "../Dropdown/Dropdown";
 
 export const SectionDeleteBtn = () => {
   return (
@@ -26,6 +36,62 @@ export const SectionDeleteBtn = () => {
   );
 };
 
+// const COMPONENTS_REGISTRY = {
+//   widget1: ExampleWidget1,
+//   widget2: ExampleWidget2,
+//   widget3: ExampleWidget3,
+//   selectWidget: SelectWidget,
+// };
+
+export type ComponentItem =
+  | {
+      id: "widget1";
+      props: ExampleWidget1Props;
+    }
+  | {
+      id: "widget2";
+      props: ExampleWidget2Props;
+    }
+  | {
+      id: "widget3";
+      props: ExampleWidget3Props;
+    };
+
+//export type ComponentType = keyof typeof COMPONENTS_REGISTRY;
+
+const renderComponent = (item: ComponentItem) => {
+  switch (item?.id) {
+    case "widget1":
+      return <ExampleWidget1 {...item?.props} />;
+    case "widget2":
+      return <ExampleWidget2 {...item?.props} />;
+    case "widget3":
+      return <ExampleWidget3 {...item?.props} />;
+  }
+};
+
+// const renderComponent = (componentType: ComponentType = "selectWidget", props:) => {
+//   if (componentType) {
+//     const Component = COMPONENTS_REGISTRY[componentType];
+//     return Component ? (
+//       <Component />
+//     ) : (
+//       <Dropdown
+//         onClick={() => {
+//           // TBDD
+//         }}
+//         button={"asdf"}
+//         options={[
+//           {
+//             id: "asd",
+//             title: "sdf",
+//           },
+//         ]}
+//       />
+//     );
+//   }
+// };
+
 export const Section = ({
   item,
   edit,
@@ -34,6 +100,7 @@ export const Section = ({
   removePanel,
   isFirstChildren,
   allowDelete,
+  updateValue,
 }: {
   item: TreeNode<SectionType>;
   edit: boolean;
@@ -43,6 +110,7 @@ export const Section = ({
   isFirstChildren: boolean;
   isLastChildren: boolean;
   allowDelete: boolean;
+  updateValue: (id: string, value: SectionType) => void;
 }) => {
   const hasChildren = item?.children && item?.children()?.length > 0;
 
@@ -61,6 +129,7 @@ export const Section = ({
               removePanel={removePanel}
               isFirstChildren={idx === 0}
               isLastChildren={idx === item?.children()?.length - 1}
+              updateValue={updateValue}
             />
           </React.Fragment>
         ))}
@@ -81,7 +150,38 @@ export const Section = ({
       <div className={`d-flex-column section-gap flex-1`}>
         <div className="dashboard-section ">
           <div className="dashboard-section__header">
-            Node {item?.id()}
+            {/* Node {item?.id()} */}
+            {edit && (
+              <div>
+                <Dropdown
+                  selectedOption={item?.value()?.value?.component?.id as string}
+                  onClick={(id) => {
+                    updateValue(item?.id(), {
+                      display: "COLUMN",
+                      component: {
+                        id: id,
+                        props: {},
+                      } as ComponentItem,
+                    });
+                  }}
+                  button={"Select widget"}
+                  options={[
+                    {
+                      id: "widget1",
+                      title: "Widget 1",
+                    },
+                    {
+                      id: "widget2",
+                      title: "Widget 2",
+                    },
+                    {
+                      id: "widget3",
+                      title: "Widget 3",
+                    },
+                  ]}
+                />
+              </div>
+            )}
             {edit && allowDelete && (
               <div className="dashboard-section__settings-handler ml-auto">
                 <div
@@ -96,7 +196,27 @@ export const Section = ({
               </div>
             )}
           </div>
-          <div className="dashboard-section__content"></div>
+          {!edit && (
+            <div className="dashboard-section__content">
+              {item?.value()?.value?.component ? (
+                renderComponent(
+                  item?.value()?.value?.component as ComponentItem
+                )
+              ) : (
+                <SelectWidget
+                  onClick={(id) => {
+                    updateValue(item?.id(), {
+                      display: "COLUMN",
+                      component: {
+                        id: id,
+                        props: {},
+                      } as ComponentItem,
+                    });
+                  }}
+                />
+              )}
+            </div>
+          )}
         </div>
         {item?.isLeaf() && edit ? (
           <SectionEditHandler
