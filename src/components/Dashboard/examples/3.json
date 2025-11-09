@@ -1,0 +1,23 @@
+{
+  "id": "root",
+  "value": { "display": "ROW", "size": null },
+  "children": [
+    {
+      "id": "26c91c31b28",
+      "value": { "display": "COLUMN", "size": null },
+      "children": [
+        { "id": "1329239b334", "value": { "display": "COLUMN", "size": null } },
+        { "id": "35d4793c010", "value": { "display": "COLUMN", "size": null } },
+        { "id": "536a3d11437", "value": { "display": "COLUMN", "size": null } }
+      ]
+    },
+    {
+      "id": "42a9b9a53a6",
+      "value": { "display": "COLUMN", "size": null },
+      "children": [
+        { "id": "21560dd7c31", "value": { "display": "COLUMN", "size": null } },
+        { "id": "32bac7d1c24", "value": { "display": "COLUMN", "size": null } }
+      ]
+    }
+  ]
+}

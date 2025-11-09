@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/components/dashboard/dashboard.tsx","./src/components/dashboardscreen/dashboardscreen.tsx","./src/components/dropdown/dropdown.tsx","./src/components/section/section.tsx","./src/components/section/sectionedithandler.tsx","./src/components/switch/switch.tsx","./src/components/tabs/tabs.tsx"],"version":"5.9.3"}

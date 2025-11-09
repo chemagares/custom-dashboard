@@ -1,0 +1,13 @@
+{
+  "id": "root",
+  "value": { "display": "ROW", "size": null },
+  "children": [
+    {
+      "id": "352c4cc2748",
+      "value": { "display": "COLUMN", "size": null },
+      "children": [
+        { "id": "7a60dc1a4a", "value": { "display": "COLUMN", "size": null } }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+:root {
+  --edit-line-handler-margin: 3px;
+  --section-edit-btn-size: 22px;
+  /* --section-edit-btn-bg: rgb(235, 235, 235);
+  --section-edit-btn-color: rgb(39, 39, 39);
+  --section-edit-btn-bg-hover: rgb(255, 97, 58);
+  --section-edit-btn-color-hover: white; */
+  --section-edit-btn-hover-transition: 0.1s ease-in;
+}
+
+.dashboard-section {
+  --section-padding-v: 10px;
+  --section-padding-h: 14px;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: inset 0px 0px 8px 2px rgba(0, 0, 0, 0.25),
+    0px 8px 20px 2px rgba(0, 0, 0, 0.1);
+  font-size: 12px;
+  background-color: rgb(41, 41, 41);
+  height: 100%;
+  position: relative;
+}
+
+.section-gap {
+  gap: 14px;
+}
+
+.dashboard-section__header {
+  padding-top: var(--section-padding-v);
+  padding-left: var(--section-padding-h);
+  padding-right: var(--section-padding-v);
+  display: flex;
+  align-items: center;
+  min-height: fit-content;
+}
+
+.dashboard-section__header {
+  user-select: none;
+}
+.dashboard-section__content {
+  padding-bottom: var(--section-padding-v);
+  padding-left: var(--section-padding-h);
+  padding-right: var(--section-padding-h);
+}
+
+.dashboard-section__delete-handler {
+  display: flex;
+  justify-content: center;
+}
+
+.dashboard-section__delete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--section-edit-btn-size);
+  height: var(--section-edit-btn-size);
+  width: var(--section-edit-btn-size);
+  cursor: pointer;
+  color: rgb(27, 3, 1);
+  background-color: #fc3714;
+  transition: var(--section-edit-btn-hover-transition);
+}
+
+.dashboard-section__delete:hover {
+  color: rgb(199, 10, 10);
+  background-color: #ff9393;
+}
+
+.dashboard-section__delete:active {
+  opacity: 0.5;
+}
+
+.dashboard-section__edit-line.--horizontal {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.02) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  height: 1px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: var(--edit-line-handler-margin);
+  margin-bottom: var(--edit-line-handler-margin);
+}
+
+.dashboard-section__edit-line.--vertical {
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.02) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  height: 100%;
+  width: 1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-left: var(--edit-line-handler-margin);
+  margin-right: var(--edit-line-handler-margin);
+}
+
+.dashboard-section__edit-line-button:hover {
+  color: rgb(8, 166, 8);
+  background-color: #c7ffc7;
+}
+
+.dashboard-section__edit-line-button:active {
+  color: rgb(20, 182, 20);
+  background-color: #c0ffc0;
+}
+
+.dashboard-section__edit-line-button {
+  background-color: #54ea54;
+  color: rgb(1, 29, 1);
+  width: var(--section-edit-btn-size);
+  height: var(--section-edit-btn-size);
+  min-width: var(--section-edit-btn-size);
+  min-height: var(--section-edit-btn-size);
+  border: 0;
+  border-radius: var(--section-edit-btn-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--section-edit-btn-hover-transition);
+  svg {
+    scale: 1.7;
+  }
+}
+
+.dashboard-section__edit-line.--vertical
+  > .dashboard-section__edit-line-button {
+  transform: translateX(-50%);
+}
+
+.dashboard-section__edit-line.--horizontal
+  > .dashboard-section__edit-line-button {
+  transform: translateY(-50%);
+}

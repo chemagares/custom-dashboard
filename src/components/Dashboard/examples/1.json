@@ -1,0 +1,30 @@
+{
+  "id": "root",
+  "value": { "display": "ROW", "size": null },
+  "children": [
+    {
+      "id": "352c4cc2748",
+      "value": { "display": "COLUMN", "size": null },
+      "children": [
+        { "id": "7a60dc1a4a", "value": { "display": "COLUMN", "size": null } },
+        { "id": "36a86b5b5a5", "value": { "display": "ROW", "size": null } }
+      ]
+    },
+    {
+      "id": "26c91c31b28",
+      "value": { "display": "COLUMN", "size": null },
+      "children": [
+        { "id": "1329239b334", "value": { "display": "COLUMN", "size": null } },
+        { "id": "536a3d11437", "value": { "display": "COLUMN", "size": null } }
+      ]
+    },
+    {
+      "id": "42a9b9a53a6",
+      "value": { "display": "COLUMN", "size": null },
+      "children": [
+        { "id": "4b923361a5c", "value": { "display": "COLUMN", "size": null } },
+        { "id": "225833c2c59", "value": { "display": "COLUMN", "size": null } }
+      ]
+    }
+  ]
+}

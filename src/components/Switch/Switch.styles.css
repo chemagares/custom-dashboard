@@ -1,0 +1,40 @@
+:root {
+  --switch-button-size: 20px;
+  --switch-margin: calc(var(--switch-button-size) / 4);
+}
+
+.switch-button {
+  appearance: none;
+  width: calc(var(--switch-button-size) * 2);
+  height: var(--switch-button-size);
+  border-radius: calc(var(--switch-button-size) * 2);
+  cursor: pointer;
+  padding: 0 2px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 0;
+  background-color: rgb(68, 68, 68);
+  box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.377);
+}
+
+.switch-button.--active {
+  background-color: rgb(68, 68, 68);
+}
+
+.switch-button__circle {
+  width: calc(var(--switch-button-size) - var(--switch-margin));
+  height: calc(var(--switch-button-size) - var(--switch-margin));
+  border-radius: var(--switch-button-size);
+  background-color: rgba(255, 255, 255, 0.289);
+  transition: all 0.2s;
+  background-color: rgba(13, 13, 13, 0.934);
+}
+.switch-button__circle.--active {
+  transform: translateX(calc(var(--switch-button-size) + 1px));
+  transition: all 0.2s;
+  background-color: rgba(255, 255, 255, 1);
+
+  box-shadow: var(--soft-shadow);
+  /* background-color: var(--color-primary-highlighted); */
+}
