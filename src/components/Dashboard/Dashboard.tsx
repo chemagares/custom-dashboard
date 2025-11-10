@@ -3,8 +3,8 @@ import { createTree, TreeNode } from "tr33"
 import { useState } from "react"
 import * as EXAMPLE_0 from "./examples/0.json"
 import * as EXAMPLE_1 from "./examples/1.json"
-import * as EXAMPLE_4 from "./examples/4.json"
-import * as EXAMPLE_5 from "./examples/5.json"
+// import * as EXAMPLE_4 from "./examples/4.json"
+// import * as EXAMPLE_5 from "./examples/5.json"
 import { DashboardScreen } from "../DashboardScreen/DashboardScreen"
 import { Tabs } from "../Tabs/Tabs"
 import { ComponentItem } from "../../types/componentItem"
@@ -22,26 +22,26 @@ export const Dashboard = () => {
       tree: TreeNode<SectionType>
     }>
   >([
+    // {
+    //   id: "Example 5",
+    //   title: "Example 5",
+    //   tree: createTree(EXAMPLE_5) as TreeNode<SectionType>,
+    // },
     {
-      id: "Example 5",
-      title: "Example 5",
-      tree: createTree(EXAMPLE_5) as TreeNode<SectionType>,
+      id: "Initial",
+      title: "Initial",
+      tree: createTree(EXAMPLE_0) as TreeNode<SectionType>,
     },
     {
       id: "Example I",
       title: "Example I",
       tree: createTree(EXAMPLE_1) as TreeNode<SectionType>,
     },
-    {
-      id: "Example 2",
-      title: "Example 2",
-      tree: createTree(EXAMPLE_4) as TreeNode<SectionType>,
-    },
-    {
-      id: "Initial",
-      title: "Initial",
-      tree: createTree(EXAMPLE_0) as TreeNode<SectionType>,
-    },
+    // {
+    //   id: "Example 2",
+    //   title: "Example 2",
+    //   tree: createTree(EXAMPLE_4) as TreeNode<SectionType>,
+    // },
     // {
     //   id: "Example 3",
     //   title: "Another",
