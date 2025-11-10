@@ -118,7 +118,7 @@ export const Section = ({
                   />
                 ) : (
                   <div className="dashboard-section__content-empty">
-                    <svg
+                    {/* <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="44"
                       height="44"
@@ -136,7 +136,7 @@ export const Section = ({
                       <path d="M10 3v18" />
                       <path d="M16 19h6" />
                       <path d="M19 16v6" />
-                    </svg>
+                    </svg> */}
                     <div className="dashboard-section__content-empty-text">
                       <SelectWidgetDropdown
                         updateValue={updateValue}

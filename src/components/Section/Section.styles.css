@@ -37,12 +37,16 @@
 }
 
 .dashboard-section__container {
-  position: absolute;
+  /* padding-top: var(--section-padding-v);
+  padding-left: var(--section-padding-h);
+  padding-right: var(--section-padding-v); */
+
+  /* position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  overflow-y: auto;
+  overflow-y: auto; */
 }
 
 .dashboard-section__header {
@@ -169,11 +173,13 @@
 }
 
 .dashboard-section__content-empty {
+  padding-top: var(--section-padding-v);
+  padding-left: var(--section-padding-h);
+  padding-right: var(--section-padding-v);
   display: flex;
   height: 100%;
   flex: 1;
-  align-items: center;
-  justify-content: center;
+
   flex-direction: column;
   gap: 14px;
   color: rgb(153, 153, 153);
