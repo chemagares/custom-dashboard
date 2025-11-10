@@ -1,6 +1,6 @@
 :root {
-  --cell-horz-padding: 10px;
-  --cell-vert-padding: 8px;
+  --cell-horz-padding: 8px;
+  --cell-vert-padding: 6px;
 }
 
 .table {
@@ -18,11 +18,11 @@ th {
 }
 
 .table__header {
-  padding: 12px var(--cell-horz-padding);
+  padding: 8px var(--cell-horz-padding);
   text-align: left;
   color: rgb(236, 236, 236);
   padding-left: 24px;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .table__header {

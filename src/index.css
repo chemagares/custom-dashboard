@@ -102,3 +102,8 @@ body {
   --success-color: #54ea54;
   --success-color-hover: #c7ffc7;
 }
+
+button {
+  background-color: transparent;
+  border: 0;
+}

@@ -138,7 +138,13 @@ export const Section = ({
                       <path d="M19 16v6" />
                     </svg>
                     <div className="dashboard-section__content-empty-text">
-                      Edit layout and select a widget to display
+                      <SelectWidgetDropdown
+                        updateValue={updateValue}
+                        item={item}
+                        selectedOption={
+                          item?.value()?.value?.component?.id as string
+                        }
+                      />
                     </div>
                   </div>
                 )}
