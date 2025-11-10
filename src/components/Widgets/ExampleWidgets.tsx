@@ -1,4 +1,5 @@
 import { Table } from "../Table/Table"
+import "./ExampleWidgets.styles.css"
 import { WidgetWrapper } from "../WidgetWrapper/WidgetWrapper"
 
 export const InventoryStatus = () => {
@@ -499,10 +500,36 @@ export const ProjectStatus = () => {
   )
 }
 
-export const ExampleWidget4 = () => {
+export const VisitsKPI = () => {
   return (
-    <WidgetWrapper hPadding={0} vPadding={0}>
-      Hello I'm example widget 4
+    <WidgetWrapper hPadding={16} vPadding={16}>
+      {/* KPI CARD about visits */}
+      <div className="kpi-card-container">
+        <div className="kpi-card">
+          <div className="kpi-card__title">
+            <h3>Total visits</h3>
+          </div>
+          <div className="kpi-card__description">
+            <p>Total visits in the last 30 days</p>
+          </div>
+          <div className="kpi-card__value">
+            <h3>234K</h3>
+            <span className="kpi-card__value-change">+10% from last month</span>
+          </div>
+        </div>
+        <div className="kpi-card">
+          <div className="kpi-card__title">
+            <h3>Total users</h3>
+          </div>
+          <div className="kpi-card__description">
+            <p>Total users signed up in the last 30 days</p>
+          </div>
+          <div className="kpi-card__value">
+            <h3>12,345</h3>
+            <span className="kpi-card__value-change">+200 from last month</span>
+          </div>
+        </div>
+      </div>
     </WidgetWrapper>
   )
 }

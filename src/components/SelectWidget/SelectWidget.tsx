@@ -38,6 +38,10 @@ export const SelectWidgetDropdown = ({
           id: "ProjectStatus",
           title: "Project Status",
         },
+        {
+          id: "VisitsKPI",
+          title: "Visits KPI",
+        },
       ]}
     />
   )

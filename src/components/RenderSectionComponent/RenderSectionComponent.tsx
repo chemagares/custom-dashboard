@@ -1,5 +1,6 @@
 import { ComponentItem } from "../../types/componentItem"
 import {
+  VisitsKPI,
   InventoryStatus,
   ProjectStatus,
   TeamMembers,
@@ -14,5 +15,7 @@ export const RenderSectionComponent = ({ item }: { item: ComponentItem }) => {
       return <ProjectStatus />
     case "TeamMembers":
       return <TeamMembers />
+    case "VisitsKPI":
+      return <VisitsKPI />
   }
 }

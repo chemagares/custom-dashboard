@@ -1,13 +1,13 @@
-import { ReactNode } from "react";
+import { ReactNode } from "react"
 
 export const WidgetWrapper = ({
   children,
   hPadding,
   vPadding,
 }: {
-  children: ReactNode;
-  hPadding: number;
-  vPadding: number;
+  children: ReactNode
+  hPadding: number
+  vPadding: number
 }) => {
   return (
     <div
@@ -23,7 +23,7 @@ export const WidgetWrapper = ({
         paddingBottom: `${vPadding}px`,
       }}
     >
-      <div>{children}</div>
+      {children}
     </div>
-  );
-};
+  )
+}
