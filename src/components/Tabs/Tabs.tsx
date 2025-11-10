@@ -57,6 +57,7 @@ export const Tabs = ({
       ></div>
       {items?.map((i, idx) => (
         <div
+          key={i?.id}
           className={`tabs__item ${activeTab === i?.id ? "--active" : ""}`}
           onClick={() => {
             onClick(i?.id);

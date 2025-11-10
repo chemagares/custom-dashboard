@@ -36,8 +36,9 @@ export const Dropdown = ({
         )}
         {active && (
           <div className="dropdown__panel">
-            {options?.map((o) => (
+            {options?.map((o, idx) => (
               <div
+                key={`${o?.id}-${idx}`}
                 className="dropdown__panel-item"
                 onClick={() => {
                   setActive(false);

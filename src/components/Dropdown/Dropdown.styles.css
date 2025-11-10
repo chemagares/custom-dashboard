@@ -1,17 +1,21 @@
 .dropdown {
   position: relative;
+  width: 100%;
+  max-width: 28rem;
 }
 
 .dropdown {
-  --height: 36px;
+  --height: 40px;
 }
 .dropdown__button {
   position: relative;
   height: var(--height);
+  width: 100%;
+  font-size: 14px;
 }
 .dropdown__button-content {
   border-radius: var(--height);
-  padding: 8px 16px;
+  padding: 12px 20px;
   transition: all 0.25;
   cursor: pointer;
   background-color: rgba(211, 211, 211, 0.05);
@@ -19,6 +23,7 @@
   display: flex;
   align-items: center;
   user-select: none;
+  width: 100%;
 }
 
 .dropdown__button-content:hover {
@@ -34,7 +39,7 @@
   background-color: rgba(255, 255, 255, 0.08);
   display: flex;
   flex-direction: column;
-  border-radius: 10px;
+  border-radius: 16px;
   padding: 4px 0px;
   height: fit-content;
   text-align: left;

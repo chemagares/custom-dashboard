@@ -12,12 +12,12 @@
   --section-padding-v: 10px;
   --section-padding-h: 14px;
   width: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 0px solid rgba(255, 255, 255, 0.025);
   border-radius: 20px;
-  box-shadow: inset 0px 0px 8px 2px rgba(0, 0, 0, 0.25),
-    0px 8px 20px 2px rgba(0, 0, 0, 0.1);
+  /* box-shadow: inset 0px 0px 8px 2px rgba(0, 0, 0, 0.25),
+    0px 8px 20px 2px rgba(0, 0, 0, 0.1); */
   font-size: 12px;
-  background-color: rgb(41, 41, 41);
+  background-color: rgb(20, 20, 20);
   height: 100%;
   position: relative;
   overflow-y: auto;
@@ -149,3 +149,23 @@
   > .dashboard-section__edit-line-button {
   transform: translateY(-50%);
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 0px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(111, 111, 111);
+  border-radius: 10px;
+}
+
+/* ::-webkit-scrollbar-thumb:hover {
+  background: #b30000;
+} */

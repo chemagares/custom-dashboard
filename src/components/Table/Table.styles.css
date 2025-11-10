@@ -1,0 +1,61 @@
+:root {
+  --cell-horz-padding: 10px;
+  --cell-vert-padding: 8px;
+}
+
+.table {
+  height: fit-content;
+  border-radius: 6px;
+  font-size: 13px;
+  border: 0px solid rgba(0, 0, 0, 0.1);
+  color: rgb(219, 219, 219);
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  text-align: left;
+}
+
+.table__header {
+  padding: 12px var(--cell-horz-padding);
+  text-align: left;
+  color: rgb(236, 236, 236);
+  padding-left: 24px;
+  font-size: 15px;
+}
+
+.table__header {
+  background-color: rgb(13, 13, 13);
+}
+
+th {
+  background-color: rgb(20, 20, 20);
+}
+
+.table__header,
+th {
+  border-bottom: 1px solid rgb(34, 34, 34);
+}
+
+.table__cell:first-child {
+  padding-left: 24px;
+}
+
+.table__cell:last-child {
+  padding-right: 24px;
+}
+
+.table__content {
+}
+
+.table__row {
+}
+
+.table__row:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.015);
+}
+
+.table__cell {
+  padding: var(--cell-vert-padding) var(--cell-horz-padding);
+}

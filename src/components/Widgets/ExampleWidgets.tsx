@@ -1,22 +1,5 @@
-import { ReactNode } from "react";
-import { Dropdown } from "../Dropdown/Dropdown";
-
-const WidgetWrapper = ({ children }: { children: ReactNode }) => {
-  return (
-    <div
-      style={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        padding: "16px",
-      }}
-    >
-      <div>{children}</div>
-    </div>
-  );
-};
+import { Table } from "../Table/Table";
+import { WidgetWrapper } from "../WidgetWrapper/WidgetWrapper";
 
 export interface ExampleWidget1Props {
   name: string;
@@ -30,106 +13,130 @@ export interface ExampleWidget3Props {
   greeting: string;
 }
 
-export const ExampleWidget1 = (props: ExampleWidget1Props) => {
+export const GlobalMarkets = (props: ExampleWidget1Props) => {
   return (
-    <WidgetWrapper>
-      <h2 style={{ marginTop: "0.2rem", marginBottom: "0.2rem" }}>Widget 1</h2>
-      Bacon ipsum dolor amet shank burgdoggen tongue sirloin andouille tri-tip
-      rump pork loin ham hock salami. Pig picanha bacon shankle ground round
-      corned beef alcatra chicken strip steak chislic. Turducken sirloin t-bone
-      bresaola hamburger.
+    <WidgetWrapper hPadding={0} vPadding={0}>
+      <Table
+        {...{
+          header: [
+            { value: "Índice" },
+            { value: "Último" },
+            { value: "Cambio" },
+            { value: "%" },
+          ],
+          title: "Mercados Globales",
+          rows: [
+            [
+              { value: "Dow Jones" },
+              { value: "34,500" },
+              { value: "+120" },
+              { value: "+0.35%" },
+            ],
+            [
+              { value: "S&P 500" },
+              { value: "4,500" },
+              { value: "+15" },
+              { value: "+0.33%" },
+            ],
+            [
+              { value: "NASDAQ" },
+              { value: "13,800" },
+              { value: "-50" },
+              { value: "-0.36%" },
+            ],
+            [
+              { value: "FTSE 100" },
+              { value: "7,100" },
+              { value: "+20" },
+              { value: "+0.28%" },
+            ],
+          ],
+        }}
+      />
     </WidgetWrapper>
   );
 };
 
-export const ExampleWidget2 = (props: ExampleWidget2Props) => {
+export const Currencies = (props: ExampleWidget2Props) => {
   return (
-    <WidgetWrapper>
-      <h2 style={{ marginTop: "0.2rem", marginBottom: "0.5rem" }}>Widget 2</h2>
-      <div
-        style={{
-          marginBottom: "0.5rem",
-          width: "100%",
-          backgroundColor: "rgba(255,255,255,0.08)",
-          borderRadius: "8px",
-          height: "50px",
+    <WidgetWrapper hPadding={0} vPadding={0}>
+      <Table
+        {...{
+          title: "Currencies",
+          header: [
+            { value: "Par" },
+            { value: "Último" },
+            { value: "Cambio" },
+            { value: "%" },
+          ],
+          rows: [
+            [
+              { value: "EUR/USD" },
+              { value: "1.1020" },
+              { value: "+0.0012" },
+              { value: "+0.11%" },
+            ],
+            [
+              { value: "USD/JPY" },
+              { value: "146.50" },
+              { value: "-0.25" },
+              { value: "-0.17%" },
+            ],
+            [
+              { value: "GBP/USD" },
+              { value: "1.2850" },
+              { value: "+0.0008" },
+              { value: "+0.06%" },
+            ],
+          ],
         }}
-      ></div>
-      <div
-        style={{
-          marginBottom: "0.5rem",
-          width: "100%",
-          backgroundColor: "rgba(255,255,255,0.08)",
-          borderRadius: "8px",
-          height: "50px",
-        }}
-      ></div>
-      <div
-        style={{
-          marginBottom: "0.5rem",
-          width: "100%",
-          backgroundColor: "rgba(255,255,255,0.08)",
-          borderRadius: "8px",
-          height: "50px",
-        }}
-      ></div>
+      />
     </WidgetWrapper>
   );
 };
 
-export const ExampleWidget3 = (props: ExampleWidget3Props) => {
+export const TopGainers = (props: ExampleWidget3Props) => {
   return (
-    <WidgetWrapper>
-      <div
-        style={{
-          display: "flex",
+    <WidgetWrapper hPadding={0} vPadding={0}>
+      <Table
+        {...{
+          title: "Top Gainers",
+          header: [
+            { value: "Acción" },
+            { value: "Último" },
+            { value: "Cambio" },
+            { value: "%" },
+          ],
+          rows: [
+            [
+              { value: "AAPL" },
+              { value: "172.50" },
+              { value: "+3.50" },
+              { value: "+2.07%" },
+            ],
+            [
+              { value: "TSLA" },
+              { value: "720.00" },
+              { value: "+15.00" },
+              { value: "+2.13%" },
+            ],
+            [
+              { value: "AMZN" },
+              { value: "3,250" },
+              { value: "+50" },
+              { value: "+1.56%" },
+            ],
+          ],
         }}
-      >
-        <div
-          style={{
-            marginBottom: "0.5rem",
-            marginRight: "1rem",
-            minWidth: "3rem",
-            height: "3rem",
-            backgroundColor: "rgba(255,255,255,0.08)",
-            borderRadius: "8px",
-          }}
-        ></div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus,
-        vitae! Perspiciatis asperiores illum, ea soluta magnam sequi velit nisi
-        totam ab dolorem recusandae sed architecto voluptatum odio aspernatur
-        distinctio adipisci!
-      </div>
+      />
     </WidgetWrapper>
   );
 };
 
 export const ExampleWidget4 = () => {
-  return <WidgetWrapper>Hello I'm example widget 4</WidgetWrapper>;
-};
-
-export const SelectWidget = ({
-  onClick,
-}: {
-  onClick: (id: string) => void;
-}) => {
   return (
-    <WidgetWrapper>
-      <Dropdown
-        selectedOption={null}
-        onClick={onClick}
-        button={"Select widget"}
-        options={[
-          {
-            id: "widget1",
-            title: "Widget 1",
-          },
-          {
-            id: "widget2",
-            title: "Widget 2",
-          },
-        ]}
-      />
+    <WidgetWrapper hPadding={0} vPadding={0}>
+      Hello I'm example widget 4
     </WidgetWrapper>
   );
 };

@@ -11,7 +11,7 @@
           "value": {
             "display": "COLUMN",
             "component": {
-              "id": "widget1"
+              "id": "GlobalMarkets"
             }
           }
         }

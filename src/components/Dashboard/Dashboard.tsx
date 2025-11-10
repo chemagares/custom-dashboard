@@ -10,7 +10,7 @@ import * as EXAMPLE_5 from "./examples/5.json";
 import { DashboardScreen } from "../DashboardScreen/DashboardScreen";
 import { Tabs } from "../Tabs/Tabs";
 import { Switch } from "../Switch/Switch";
-import { ComponentItem } from "../Section/Section";
+import { ComponentItem } from "../../types/componentItem";
 
 export interface SectionType {
   display: "COLUMN" | "ROW";

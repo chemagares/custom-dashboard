@@ -3,16 +3,9 @@ import type { SectionType } from "../Dashboard/Dashboard";
 import "./Section.styles.css";
 import type { TreeNode } from "tr33";
 import { SectionEditHandler } from "./SectionEditHandler";
-import {
-  ExampleWidget1,
-  ExampleWidget1Props,
-  ExampleWidget2,
-  ExampleWidget2Props,
-  ExampleWidget3,
-  ExampleWidget3Props,
-  SelectWidget,
-} from "../Widgets/ExampleWidgets";
-import { Dropdown } from "../Dropdown/Dropdown";
+import { ComponentItem } from "../../types/componentItem";
+import { RenderSectionComponent } from "../RenderSectionComponent/RenderSectionComponent";
+import { SelectWidgetDropdown } from "../SelectWidget/SelectWidget";
 
 export const SectionDeleteBtn = () => {
   return (
@@ -35,62 +28,6 @@ export const SectionDeleteBtn = () => {
     </div>
   );
 };
-
-// const COMPONENTS_REGISTRY = {
-//   widget1: ExampleWidget1,
-//   widget2: ExampleWidget2,
-//   widget3: ExampleWidget3,
-//   selectWidget: SelectWidget,
-// };
-
-export type ComponentItem =
-  | {
-      id: "widget1";
-      props: ExampleWidget1Props;
-    }
-  | {
-      id: "widget2";
-      props: ExampleWidget2Props;
-    }
-  | {
-      id: "widget3";
-      props: ExampleWidget3Props;
-    };
-
-//export type ComponentType = keyof typeof COMPONENTS_REGISTRY;
-
-const renderComponent = (item: ComponentItem) => {
-  switch (item?.id) {
-    case "widget1":
-      return <ExampleWidget1 {...item?.props} />;
-    case "widget2":
-      return <ExampleWidget2 {...item?.props} />;
-    case "widget3":
-      return <ExampleWidget3 {...item?.props} />;
-  }
-};
-
-// const renderComponent = (componentType: ComponentType = "selectWidget", props:) => {
-//   if (componentType) {
-//     const Component = COMPONENTS_REGISTRY[componentType];
-//     return Component ? (
-//       <Component />
-//     ) : (
-//       <Dropdown
-//         onClick={() => {
-//           // TBDD
-//         }}
-//         button={"asdf"}
-//         options={[
-//           {
-//             id: "asd",
-//             title: "sdf",
-//           },
-//         ]}
-//       />
-//     );
-//   }
-// };
 
 export const Section = ({
   item,
@@ -136,7 +73,7 @@ export const Section = ({
       </div>
     );
   }
-
+  console.log(item?.value()?.value);
   return (
     <>
       {isFirstChildren && edit ? (
@@ -152,35 +89,11 @@ export const Section = ({
           <div className="dashboard-section__header">
             {/* Node {item?.id()} */}
             {edit && (
-              <div>
-                <Dropdown
-                  selectedOption={item?.value()?.value?.component?.id as string}
-                  onClick={(id) => {
-                    updateValue(item?.id(), {
-                      display: "COLUMN",
-                      component: {
-                        id: id,
-                        props: {},
-                      } as ComponentItem,
-                    });
-                  }}
-                  button={"Select widget"}
-                  options={[
-                    {
-                      id: "widget1",
-                      title: "Widget 1",
-                    },
-                    {
-                      id: "widget2",
-                      title: "Widget 2",
-                    },
-                    {
-                      id: "widget3",
-                      title: "Widget 3",
-                    },
-                  ]}
-                />
-              </div>
+              <SelectWidgetDropdown
+                updateValue={updateValue}
+                item={item}
+                selectedOption={item?.value()?.value?.component?.id as string}
+              />
             )}
             {edit && allowDelete && (
               <div className="dashboard-section__settings-handler ml-auto">
@@ -199,20 +112,14 @@ export const Section = ({
           {!edit && (
             <div className="dashboard-section__content">
               {item?.value()?.value?.component ? (
-                renderComponent(
-                  item?.value()?.value?.component as ComponentItem
-                )
+                <RenderSectionComponent
+                  item={item?.value()?.value?.component as ComponentItem}
+                />
               ) : (
-                <SelectWidget
-                  onClick={(id) => {
-                    updateValue(item?.id(), {
-                      display: "COLUMN",
-                      component: {
-                        id: id,
-                        props: {},
-                      } as ComponentItem,
-                    });
-                  }}
+                <SelectWidgetDropdown
+                  updateValue={updateValue}
+                  item={item}
+                  selectedOption={item?.value()?.value?.component?.id as string}
                 />
               )}
             </div>
