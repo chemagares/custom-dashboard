@@ -120,8 +120,8 @@ export const Section = ({
                   <div className="dashboard-section__content-empty">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="50"
-                      height="50"
+                      width="44"
+                      height="44"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"

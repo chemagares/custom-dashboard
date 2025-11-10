@@ -9,10 +9,7 @@
         {
           "id": "7a60dc1a4a",
           "value": {
-            "display": "COLUMN",
-            "component": {
-              "id": "GlobalMarkets"
-            }
+            "display": "COLUMN"
           }
         }
       ]
