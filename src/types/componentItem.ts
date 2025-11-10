@@ -1,10 +1,10 @@
 export type ComponentItem =
   | {
-      id: "GlobalMarkets"
+      id: "InventoryStatus"
     }
   | {
-      id: "Currencies"
+      id: "TeamMembers"
     }
   | {
-      id: "TopGainers"
+      id: "ProjectStatus"
     }

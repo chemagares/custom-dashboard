@@ -79,7 +79,7 @@ body {
   background-color: var(--success-color);
   color: rgb(1, 29, 1);
   &:hover {
-    background-color: var(--success-color-hover);
+    background-color: #54ea54;
   }
   svg {
     color: rgb(1, 29, 1);

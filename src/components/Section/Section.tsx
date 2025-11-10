@@ -85,39 +85,66 @@ export const Section = ({
         />
       ) : null}
       <div className={`d-flex-column section-gap flex-1`}>
-        <div className="dashboard-section ">
-          <div className="dashboard-section__header">
-            {/* Node {item?.id()} */}
-            {edit && (
-              <SelectWidgetDropdown
-                updateValue={updateValue}
-                item={item}
-                selectedOption={item?.value()?.value?.component?.id as string}
-              />
-            )}
-            {edit && allowDelete && (
-              <div className="dashboard-section__settings-handler ml-auto">
-                <div
-                  onClick={() => {
-                    if (item?.id()) {
-                      removePanel(item?.id())
-                    }
-                  }}
-                >
-                  <SectionDeleteBtn />
+        <div className="dashboard-section">
+          <div className="dashboard-section__container">
+            <div className="dashboard-section__header">
+              {/* Node {item?.id()} */}
+              {edit && (
+                <SelectWidgetDropdown
+                  updateValue={updateValue}
+                  item={item}
+                  selectedOption={item?.value()?.value?.component?.id as string}
+                />
+              )}
+              {edit && allowDelete && (
+                <div className="dashboard-section__settings-handler ml-auto">
+                  <button
+                    onClick={() => {
+                      if (item?.id()) {
+                        removePanel(item?.id())
+                      }
+                    }}
+                  >
+                    <SectionDeleteBtn />
+                  </button>
                 </div>
+              )}
+            </div>
+            {!edit && (
+              <div className="dashboard-section__content">
+                {item?.value()?.value?.component ? (
+                  <RenderSectionComponent
+                    item={item?.value()?.value?.component as ComponentItem}
+                  />
+                ) : (
+                  <div className="dashboard-section__content-empty">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="50"
+                      height="50"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.25"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      className="icon icon-tabler icons-tabler-outline icon-tabler-table-plus"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path d="M12.5 21h-7.5a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v7.5" />
+                      <path d="M3 10h18" />
+                      <path d="M10 3v18" />
+                      <path d="M16 19h6" />
+                      <path d="M19 16v6" />
+                    </svg>
+                    <div className="dashboard-section__content-empty-text">
+                      Edit layout and select a widget to display
+                    </div>
+                  </div>
+                )}
               </div>
             )}
           </div>
-          {!edit && (
-            <div className="dashboard-section__content">
-              {item?.value()?.value?.component ? (
-                <RenderSectionComponent
-                  item={item?.value()?.value?.component as ComponentItem}
-                />
-              ) : null}
-            </div>
-          )}
         </div>
         {item?.isLeaf() && edit ? (
           <SectionEditHandler

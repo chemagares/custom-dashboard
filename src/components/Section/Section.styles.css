@@ -1,10 +1,6 @@
 :root {
   --edit-line-handler-margin: 3px;
   --section-edit-btn-size: 22px;
-  /* --section-edit-btn-bg: rgb(235, 235, 235);
-  --section-edit-btn-color: rgb(39, 39, 39);
-  --section-edit-btn-bg-hover: rgb(255, 97, 58);
-  --section-edit-btn-color-hover: white; */
   --section-edit-btn-hover-transition: 0.1s ease-in;
 }
 
@@ -14,13 +10,11 @@
   width: 100%;
   border: 0px solid rgba(255, 255, 255, 0.025);
   border-radius: 20px;
-  /* box-shadow: inset 0px 0px 8px 2px rgba(0, 0, 0, 0.25),
-    0px 8px 20px 2px rgba(0, 0, 0, 0.1); */
   font-size: 12px;
   background-color: rgb(20, 20, 20);
   height: 100%;
   position: relative;
-  overflow-y: auto;
+  overflow: hidden;
 }
 
 .section-gap {
@@ -42,13 +36,20 @@
   gap: 12px;
 }
 
+.dashboard-section__container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+}
+
 .dashboard-section__header {
   user-select: none;
 }
 .dashboard-section__content {
   padding-bottom: var(--section-padding-v);
-  /* padding-left: var(--section-padding-h);
-  padding-right: var(--section-padding-h); */
   height: 100%;
   position: relative;
 }
@@ -163,10 +164,17 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(111, 111, 111);
+  background: rgb(35, 35, 35);
   border-radius: 10px;
 }
 
-/* ::-webkit-scrollbar-thumb:hover {
-  background: #b30000;
-} */
+.dashboard-section__content-empty {
+  display: flex;
+  height: 100%;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  color: rgb(153, 153, 153);
+}

@@ -27,16 +27,16 @@ export const SelectWidgetDropdown = ({
       button={"Select widget"}
       options={[
         {
-          id: "GlobalMarkets",
-          title: "Global Markets",
+          id: "InventoryStatus",
+          title: "Inventory Status",
         },
         {
-          id: "Currencies",
-          title: "Currencies",
+          id: "TeamMembers",
+          title: "Team Members",
         },
         {
-          id: "TopGainers",
-          title: "Top Gainers",
+          id: "ProjectStatus",
+          title: "Project Status",
         },
       ]}
     />
