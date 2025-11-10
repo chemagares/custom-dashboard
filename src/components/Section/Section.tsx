@@ -1,11 +1,11 @@
-import React from "react";
-import type { SectionType } from "../Dashboard/Dashboard";
-import "./Section.styles.css";
-import type { TreeNode } from "tr33";
-import { SectionEditHandler } from "./SectionEditHandler";
-import { ComponentItem } from "../../types/componentItem";
-import { RenderSectionComponent } from "../RenderSectionComponent/RenderSectionComponent";
-import { SelectWidgetDropdown } from "../SelectWidget/SelectWidget";
+import React from "react"
+import type { SectionType } from "../Dashboard/Dashboard"
+import "./Section.styles.css"
+import type { TreeNode } from "tr33"
+import { SectionEditHandler } from "./SectionEditHandler"
+import { ComponentItem } from "../../types/componentItem"
+import { RenderSectionComponent } from "../RenderSectionComponent/RenderSectionComponent"
+import { SelectWidgetDropdown } from "../SelectWidget/SelectWidget"
 
 export const SectionDeleteBtn = () => {
   return (
@@ -17,17 +17,17 @@ export const SectionDeleteBtn = () => {
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         className="icon icon-tabler icons-tabler-outline icon-tabler-minus"
       >
         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
         <path d="M5 12l14 0" />
       </svg>
     </div>
-  );
-};
+  )
+}
 
 export const Section = ({
   item,
@@ -39,17 +39,17 @@ export const Section = ({
   allowDelete,
   updateValue,
 }: {
-  item: TreeNode<SectionType>;
-  edit: boolean;
-  addPanelBefore: (id: string) => void;
-  addPanelAfter: (id: string) => void;
-  removePanel: (id: string) => void;
-  isFirstChildren: boolean;
-  isLastChildren: boolean;
-  allowDelete: boolean;
-  updateValue: (id: string, value: SectionType) => void;
+  item: TreeNode<SectionType>
+  edit: boolean
+  addPanelBefore: (id: string) => void
+  addPanelAfter: (id: string) => void
+  removePanel: (id: string) => void
+  isFirstChildren: boolean
+  isLastChildren: boolean
+  allowDelete: boolean
+  updateValue: (id: string, value: SectionType) => void
 }) => {
-  const hasChildren = item?.children && item?.children()?.length > 0;
+  const hasChildren = item?.children && item?.children()?.length > 0
 
   if (hasChildren) {
     return (
@@ -71,16 +71,16 @@ export const Section = ({
           </React.Fragment>
         ))}
       </div>
-    );
+    )
   }
-  console.log(item?.value()?.value);
+
   return (
     <>
       {isFirstChildren && edit ? (
         <SectionEditHandler
           display={"COLUMN"}
           addPanel={() => {
-            addPanelBefore(item?.id());
+            addPanelBefore(item?.id())
           }}
         />
       ) : null}
@@ -100,7 +100,7 @@ export const Section = ({
                 <div
                   onClick={() => {
                     if (item?.id()) {
-                      removePanel(item?.id());
+                      removePanel(item?.id())
                     }
                   }}
                 >
@@ -129,11 +129,11 @@ export const Section = ({
           <SectionEditHandler
             display={"COLUMN"}
             addPanel={() => {
-              addPanelAfter(item?.id());
+              addPanelAfter(item?.id())
             }}
           />
         ) : null}
       </div>
     </>
-  );
-};
+  )
+}

@@ -1,13 +1,8 @@
-import { Section } from "../Section/Section";
-import { createTree, TreeNode, type RawTreeNode } from "tr33";
-import React from "react";
-import { SectionEditHandler } from "../Section/SectionEditHandler";
-import { SectionType } from "../Dashboard/Dashboard";
-
-// Random integer: min and max included
-// function randomIntFromInterval(min: number, max: number) {
-//   return Math.floor(Math.random() * (max - min + 1) + min);
-// }
+import { Section } from "../Section/Section"
+import { createTree, TreeNode, type RawTreeNode } from "tr33"
+import React from "react"
+import { SectionEditHandler } from "../Section/SectionEditHandler"
+import { SectionType } from "../Dashboard/Dashboard"
 
 export const DashboardScreen = ({
   dashboard,
@@ -15,14 +10,14 @@ export const DashboardScreen = ({
   edit,
   isActive,
 }: {
-  dashboard: TreeNode<SectionType>;
-  setDashboard: (item: TreeNode<SectionType>) => void;
-  edit: boolean;
-  isActive: boolean;
+  dashboard: TreeNode<SectionType>
+  setDashboard: (item: TreeNode<SectionType>) => void
+  edit: boolean
+  isActive: boolean
 }) => {
   const isTheOnlyNode =
     dashboard?.children()?.length === 1 &&
-    dashboard?.children()?.[0]?.children()?.length === 1;
+    dashboard?.children()?.[0]?.children()?.length === 1
   const addPanel = (
     id: string,
     mode: "BEFORE" | "AFTER",
@@ -47,49 +42,49 @@ export const DashboardScreen = ({
               display: "COLUMN",
             },
           }
-    ) as RawTreeNode<SectionType>;
+    ) as RawTreeNode<SectionType>
 
     if (id) {
-      const [node] = dashboard.find(id);
-      const parentId = node?.getParentId();
+      const [node] = dashboard.find(id)
+      const parentId = node?.getParentId()
       if (node && parentId) {
-        const [parent] = dashboard.find(parentId);
+        const [parent] = dashboard.find(parentId)
         if (mode === "BEFORE") {
-          parent?.addBefore(id, newItem);
+          parent?.addBefore(id, newItem)
         } else {
-          parent?.addAfter(id, newItem);
+          parent?.addAfter(id, newItem)
         }
       }
     }
 
-    setDashboard(createTree(dashboard?.value()) as TreeNode<SectionType>);
-  };
+    setDashboard(createTree(dashboard?.value()) as TreeNode<SectionType>)
+  }
 
   const removePanel = (id: string) => {
     if (id) {
-      const [node] = dashboard.find(id);
-      console.log(node);
-      const parentId = node?.getParentId();
+      const [node] = dashboard.find(id)
+      console.log(node)
+      const parentId = node?.getParentId()
       if (node && parentId) {
-        const [parent] = dashboard.find(parentId);
-        console.log(parent);
-        if (parent) parent.remove(id);
+        const [parent] = dashboard.find(parentId)
+        console.log(parent)
+        if (parent) parent.remove(id)
         // If parent does not have children, remove it
         if (!parent?.children()?.length && parent) {
-          const [upper] = dashboard.find(parent.getParentId()!);
-          upper?.remove(parent.id()!);
+          const [upper] = dashboard.find(parent.getParentId()!)
+          upper?.remove(parent.id()!)
         }
       }
     }
 
-    setDashboard(createTree(dashboard?.value()) as TreeNode<SectionType>);
-  };
+    setDashboard(createTree(dashboard?.value()) as TreeNode<SectionType>)
+  }
 
   const updateValue = (id: string, value: SectionType) => {
-    const [node] = dashboard.find(id);
-    node?.update(value);
-    setDashboard(createTree(dashboard?.value()) as TreeNode<SectionType>);
-  };
+    const [node] = dashboard.find(id)
+    node?.update(value)
+    setDashboard(createTree(dashboard?.value()) as TreeNode<SectionType>)
+  }
 
   //console.log(JSON.stringify(dashboard?.value()));
 
@@ -109,7 +104,7 @@ export const DashboardScreen = ({
                 out={false}
                 display={"ROW"}
                 addPanel={() => {
-                  addPanel(c.id()!, "BEFORE", true);
+                  addPanel(c.id()!, "BEFORE", true)
                 }}
               />
             ) : null}
@@ -122,7 +117,7 @@ export const DashboardScreen = ({
               addPanelBefore={(id) => addPanel(id, "BEFORE")}
               addPanelAfter={(id) => addPanel(id, "AFTER")}
               removePanel={(id: string) => {
-                removePanel(id);
+                removePanel(id)
               }}
               updateValue={updateValue}
             />
@@ -131,13 +126,13 @@ export const DashboardScreen = ({
                 out={false}
                 display={"ROW"}
                 addPanel={() => {
-                  addPanel(c.id()!, "AFTER", true);
+                  addPanel(c.id()!, "AFTER", true)
                 }}
               />
             )}
           </React.Fragment>
-        );
+        )
       })}
     </div>
-  );
-};
+  )
+}

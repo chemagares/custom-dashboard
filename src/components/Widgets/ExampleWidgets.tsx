@@ -1,19 +1,7 @@
-import { Table } from "../Table/Table";
-import { WidgetWrapper } from "../WidgetWrapper/WidgetWrapper";
+import { Table } from "../Table/Table"
+import { WidgetWrapper } from "../WidgetWrapper/WidgetWrapper"
 
-export interface ExampleWidget1Props {
-  name: string;
-}
-
-export interface ExampleWidget2Props {
-  greeting: string;
-}
-
-export interface ExampleWidget3Props {
-  greeting: string;
-}
-
-export const GlobalMarkets = (props: ExampleWidget1Props) => {
+export const GlobalMarkets = () => {
   return (
     <WidgetWrapper hPadding={0} vPadding={0}>
       <Table
@@ -54,10 +42,10 @@ export const GlobalMarkets = (props: ExampleWidget1Props) => {
         }}
       />
     </WidgetWrapper>
-  );
-};
+  )
+}
 
-export const Currencies = (props: ExampleWidget2Props) => {
+export const Currencies = () => {
   return (
     <WidgetWrapper hPadding={0} vPadding={0}>
       <Table
@@ -92,10 +80,10 @@ export const Currencies = (props: ExampleWidget2Props) => {
         }}
       />
     </WidgetWrapper>
-  );
-};
+  )
+}
 
-export const TopGainers = (props: ExampleWidget3Props) => {
+export const TopGainers = () => {
   return (
     <WidgetWrapper hPadding={0} vPadding={0}>
       <Table
@@ -130,13 +118,13 @@ export const TopGainers = (props: ExampleWidget3Props) => {
         }}
       />
     </WidgetWrapper>
-  );
-};
+  )
+}
 
 export const ExampleWidget4 = () => {
   return (
     <WidgetWrapper hPadding={0} vPadding={0}>
       Hello I'm example widget 4
     </WidgetWrapper>
-  );
-};
+  )
+}

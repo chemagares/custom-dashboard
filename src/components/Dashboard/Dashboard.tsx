@@ -1,28 +1,26 @@
-import "./Dashboard.styles.css";
-import { createTree, TreeNode } from "tr33";
-import { useState } from "react";
-import * as EXAMPLE_0 from "./examples/0.json";
-import * as EXAMPLE_1 from "./examples/1.json";
-// import * as EXAMPLE_2 from "./examples/2.json";
-// import * as EXAMPLE_3 from "./examples/3.json";
-import * as EXAMPLE_4 from "./examples/4.json";
-import * as EXAMPLE_5 from "./examples/5.json";
-import { DashboardScreen } from "../DashboardScreen/DashboardScreen";
-import { Tabs } from "../Tabs/Tabs";
-import { Switch } from "../Switch/Switch";
-import { ComponentItem } from "../../types/componentItem";
+import "./Dashboard.styles.css"
+import { createTree, TreeNode } from "tr33"
+import { useState } from "react"
+import * as EXAMPLE_0 from "./examples/0.json"
+import * as EXAMPLE_1 from "./examples/1.json"
+import * as EXAMPLE_4 from "./examples/4.json"
+import * as EXAMPLE_5 from "./examples/5.json"
+import { DashboardScreen } from "../DashboardScreen/DashboardScreen"
+import { Tabs } from "../Tabs/Tabs"
+import { Switch } from "../Switch/Switch"
+import { ComponentItem } from "../../types/componentItem"
 
 export interface SectionType {
-  display: "COLUMN" | "ROW";
-  component?: ComponentItem;
+  display: "COLUMN" | "ROW"
+  component?: ComponentItem
 }
 
 export const Dashboard = () => {
   const [dashboard, setDashboard] = useState<
     Array<{
-      title: string;
-      id: string;
-      tree: TreeNode<SectionType>;
+      title: string
+      id: string
+      tree: TreeNode<SectionType>
     }>
   >([
     {
@@ -55,24 +53,24 @@ export const Dashboard = () => {
     //   title: "Another one",
     //   tree: createTree(EXAMPLE_4) as TreeNode<SectionType>,
     // },
-  ]);
+  ])
 
-  const [activeScreen, setActiveScreen] = useState(dashboard?.[0]?.id);
-  const [edit, setEdit] = useState(false);
+  const [activeScreen, setActiveScreen] = useState(dashboard?.[0]?.id)
+  const [edit, setEdit] = useState(false)
 
   const updateDahboard = (id: string, update: TreeNode<SectionType>) => {
-    const copy = [...dashboard];
-    const position = copy?.findIndex((i) => i?.id === id);
+    const copy = [...dashboard]
+    const position = copy?.findIndex((i) => i?.id === id)
     if (position !== -1) {
-      copy[position].tree = update;
+      copy[position].tree = update
     }
 
-    setDashboard(copy);
-  };
+    setDashboard(copy)
+  }
 
-  console.log("active on parent", activeScreen);
+  console.log("active on parent", activeScreen)
 
-  const activeIndex = dashboard?.findIndex((i) => i?.id === activeScreen);
+  const activeIndex = dashboard?.findIndex((i) => i?.id === activeScreen)
 
   return (
     <div className="dashboard">
@@ -85,8 +83,8 @@ export const Dashboard = () => {
           <Tabs
             items={dashboard?.map((s) => ({ id: s?.id, title: s?.title }))}
             onClick={(id: string) => {
-              setActiveScreen(id);
-              setEdit(false);
+              setActiveScreen(id)
+              setEdit(false)
             }}
             activeTab={activeScreen}
           />
@@ -111,7 +109,7 @@ export const Dashboard = () => {
               isActive={activeIndex === idx}
               dashboard={i?.tree}
               setDashboard={(update) => {
-                updateDahboard(i?.id, update);
+                updateDahboard(i?.id, update)
               }}
               edit={edit}
             />
@@ -119,5 +117,5 @@ export const Dashboard = () => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}

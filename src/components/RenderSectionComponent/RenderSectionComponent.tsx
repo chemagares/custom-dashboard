@@ -1,18 +1,18 @@
-import { ComponentItem } from "../../types/componentItem";
+import { ComponentItem } from "../../types/componentItem"
 import {
   Currencies,
   GlobalMarkets,
   TopGainers,
-} from "../Widgets/ExampleWidgets";
+} from "../Widgets/ExampleWidgets"
 
 export const RenderSectionComponent = ({ item }: { item: ComponentItem }) => {
-  console.log(item?.id);
+  console.log(item?.id)
   switch (item?.id) {
     case "GlobalMarkets":
-      return <GlobalMarkets {...item?.props} />;
+      return <GlobalMarkets />
     case "Currencies":
-      return <Currencies {...item?.props} />;
+      return <Currencies />
     case "TopGainers":
-      return <TopGainers {...item?.props} />;
+      return <TopGainers />
   }
-};
+}

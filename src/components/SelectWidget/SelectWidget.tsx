@@ -1,16 +1,16 @@
-import { TreeNode } from "tr33";
-import { Dropdown } from "../Dropdown/Dropdown";
-import { SectionType } from "../Dashboard/Dashboard";
-import { ComponentItem } from "../../types/componentItem";
+import { TreeNode } from "tr33"
+import { Dropdown } from "../Dropdown/Dropdown"
+import { SectionType } from "../Dashboard/Dashboard"
+import { ComponentItem } from "../../types/componentItem"
 
 export const SelectWidgetDropdown = ({
   item,
   updateValue,
   selectedOption,
 }: {
-  item: TreeNode<SectionType>;
-  updateValue: (id: string, value: SectionType) => void;
-  selectedOption: string;
+  item: TreeNode<SectionType>
+  updateValue: (id: string, value: SectionType) => void
+  selectedOption: string
 }) => {
   return (
     <Dropdown
@@ -22,7 +22,7 @@ export const SelectWidgetDropdown = ({
             id: id,
             props: {},
           } as ComponentItem,
-        });
+        })
       }}
       button={"Select widget"}
       options={[
@@ -40,5 +40,5 @@ export const SelectWidgetDropdown = ({
         },
       ]}
     />
-  );
-};
+  )
+}

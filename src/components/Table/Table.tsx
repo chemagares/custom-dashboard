@@ -1,10 +1,10 @@
-import { type JSX, type ReactNode } from "react";
-import "./Table.styles.css";
+import { type JSX, type ReactNode } from "react"
+import "./Table.styles.css"
 
 export interface TableProps {
-  title: string;
-  rows: Array<Array<{ value: string | ReactNode }>>;
-  header: Array<{ value: string | ReactNode }>;
+  title: string
+  rows: Array<Array<{ value: string | ReactNode }>>
+  header: Array<{ value: string | ReactNode }>
 }
 
 export const Table = (props: TableProps): JSX.Element => {
@@ -31,10 +31,10 @@ export const Table = (props: TableProps): JSX.Element => {
                   </td>
                 ))}
               </tr>
-            );
+            )
           })}
         </tbody>
       </table>
     </div>
-  );
-};
+  )
+}
