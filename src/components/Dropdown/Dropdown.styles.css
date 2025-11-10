@@ -49,11 +49,12 @@
 }
 
 .dropdown__panel-item {
-  padding: 4px 14px;
+  padding: 6px 14px;
   user-select: none;
   white-space: nowrap;
   color: rgba(255, 255, 255, 0.7);
   cursor: pointer;
+  transition: all 0.1s ease-in-out;
 }
 
 .dropdown__panel-item:first-child {
@@ -66,8 +67,5 @@
 
 .dropdown__panel-item:hover {
   color: rgba(255, 255, 255, 0.9);
-}
-
-.dropdown__panel-item:hover {
-  background-color: #222;
+  background-color: #181818;
 }

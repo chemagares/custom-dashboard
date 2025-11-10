@@ -1,6 +1,6 @@
-import { useState, type ReactNode } from "react";
+import { useState, type ReactNode } from "react"
 
-import "./Dropdown.styles.css";
+import "./Dropdown.styles.css"
 
 export const Dropdown = ({
   button,
@@ -8,16 +8,16 @@ export const Dropdown = ({
   onClick,
   selectedOption,
 }: {
-  button: string | ReactNode;
-  options: Array<{ title: string; id: string }>;
-  onClick: (id: string) => void;
-  selectedOption: string | null;
+  button: string | ReactNode
+  options: Array<{ title: string; id: string }>
+  onClick: (id: string) => void
+  selectedOption: string | null
 }) => {
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(false)
 
   const title = selectedOption
     ? options?.find((i) => i?.id === selectedOption)?.title
-    : button;
+    : button
 
   return (
     <div className="dropdown">
@@ -27,7 +27,20 @@ export const Dropdown = ({
             className="dropdown__button-content"
             onClick={() => setActive(!active)}
           >
-            {title}
+            <div className="w-100 d-flex-row flex-1">{title}</div>
+            <div className="d-flex-row align-items-center ml-auto">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="icon icon-tabler icons-tabler-filled icon-tabler-caret-down"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" />
+              </svg>
+            </div>
           </div>
         ) : (
           <div onClick={() => setActive(!active)}>
@@ -41,8 +54,8 @@ export const Dropdown = ({
                 key={`${o?.id}-${idx}`}
                 className="dropdown__panel-item"
                 onClick={() => {
-                  setActive(false);
-                  onClick(o?.id);
+                  setActive(false)
+                  onClick(o?.id)
                 }}
               >
                 {o?.title}
@@ -52,5 +65,5 @@ export const Dropdown = ({
         )}
       </div>
     </div>
-  );
-};
+  )
+}

@@ -39,6 +39,7 @@
   left: 0;
   right: 0;
   z-index: 1;
+  gap: 12px;
 }
 
 .dashboard-section__header {
@@ -113,16 +114,16 @@
 
 .dashboard-section__edit-line-button:hover {
   color: rgb(8, 166, 8);
-  background-color: #c7ffc7;
+  background-color: var(--success-color-hover);
 }
 
 .dashboard-section__edit-line-button:active {
   color: rgb(20, 182, 20);
-  background-color: #c0ffc0;
+  background-color: var(--success-color);
 }
 
 .dashboard-section__edit-line-button {
-  background-color: #54ea54;
+  background-color: var(--success-color);
   color: rgb(1, 29, 1);
   width: var(--section-edit-btn-size);
   height: var(--section-edit-btn-size);

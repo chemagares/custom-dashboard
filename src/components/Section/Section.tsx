@@ -17,9 +17,9 @@ export const SectionDeleteBtn = () => {
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
         className="icon icon-tabler icons-tabler-outline icon-tabler-minus"
       >
         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -115,13 +115,7 @@ export const Section = ({
                 <RenderSectionComponent
                   item={item?.value()?.value?.component as ComponentItem}
                 />
-              ) : (
-                <SelectWidgetDropdown
-                  updateValue={updateValue}
-                  item={item}
-                  selectedOption={item?.value()?.value?.component?.id as string}
-                />
-              )}
+              ) : null}
             </div>
           )}
         </div>

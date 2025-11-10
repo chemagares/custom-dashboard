@@ -7,7 +7,6 @@ import * as EXAMPLE_4 from "./examples/4.json"
 import * as EXAMPLE_5 from "./examples/5.json"
 import { DashboardScreen } from "../DashboardScreen/DashboardScreen"
 import { Tabs } from "../Tabs/Tabs"
-import { Switch } from "../Switch/Switch"
 import { ComponentItem } from "../../types/componentItem"
 
 export interface SectionType {
@@ -76,7 +75,7 @@ export const Dashboard = () => {
     <div className="dashboard">
       <div className="dashboard__header">
         <img src="/dashboardIcon.svg" alt="" />
-        <div className="dashboard__title">Dashboard</div>
+        <div className="dashboard__title">Custom Dashboard</div>
       </div>
       <div className="dashboard__controls">
         <div>
@@ -90,8 +89,58 @@ export const Dashboard = () => {
           />
         </div>
         <div className="toggle-edit-mode ml-auto">
-          <div className="toggle-edit-mode__label">Edit screen</div>
-          <Switch onChange={() => setEdit((prev) => !prev)} value={edit} />
+          {/* <div className="toggle-edit-mode__label">Edit screen</div> */}
+          {/* <Switch onChange={() => setEdit((prev) => !prev)} value={edit} /> */}
+          {edit ? (
+            <button
+              className="custom-button --success"
+              onClick={() => setEdit((prev) => !prev)}
+            >
+              <div className="d-flex-row align-items-center justify-content-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  className="icon icon-tabler icons-tabler-outline icon-tabler-check"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M5 12l5 5l10 -10" />
+                </svg>
+              </div>
+              <span className="ml-2">Save</span>
+            </button>
+          ) : (
+            <button
+              className="custom-button"
+              onClick={() => setEdit((prev) => !prev)}
+            >
+              <div className="d-flex-row align-items-center justify-content-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  className="icon icon-tabler icons-tabler-outline icon-tabler-pencil"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+                  <path d="M13.5 6.5l4 4" />
+                </svg>
+              </div>
+              <span className="ml-2">Edit layout</span>
+            </button>
+          )}
         </div>
       </div>
       <div
